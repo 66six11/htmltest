@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Marked in the browser</title>
+</head>
+<body>
+<div id="content"></div>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+    fetch('MarkDocument/MagicPencil魔法铅笔.md')
+        .then(response => response.text())
+        .then(text => {
+            console.log(text);
+            document.getElementById('content').innerHTML = marked.parse(text);
+            // 你可以在这里继续处理 Markdown 文本，例如使用 marked.js 转换为 HTML
+        })
+        .catch(error => console.error('Error loading the Markdown file:', error));
+
+</script>
+</html>
